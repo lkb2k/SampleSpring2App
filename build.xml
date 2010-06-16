@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="spring2.0" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.sbas/**"/>
+    <exclude name="**/.IJI.*/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.ftl"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
+  <path id="jdk.classpath.1.6">
+    <fileset dir="${jdk.home.1.6}">
+      <include name="../../A/Resources/Deploy.bundle/Contents/Resources/Java/deploy.jar"/>
+      <include name="../Classes/dt.jar"/>
+      <include name="../../A/Resources/Deploy.bundle/Contents/Resources/Java/javaws.jar"/>
+      <include name="../Classes/jce.jar"/>
+      <include name="../Classes/management-agent.jar"/>
+      <include name="lib/sa-jdi.jar"/>
+      <include name="../Classes/alt-rt.jar"/>
+      <include name="../Classes/charsets.jar"/>
+      <include name="../Classes/classes.jar"/>
+      <include name="../Classes/jconsole.jar"/>
+      <include name="../Classes/jsse.jar"/>
+      <include name="../Classes/laf.jar"/>
+      <include name="../Classes/ui.jar"/>
+      <include name="lib/ext/apple_provider.jar"/>
+      <include name="lib/ext/dnsns.jar"/>
+      <include name="lib/ext/localedata.jar"/>
+      <include name="lib/ext/sunjce_provider.jar"/>
+      <include name="lib/ext/sunpkcs11.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.6}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
+  
+  
+  <!-- Application Server Libraries -->
+  
+  <path id="library.tomcat_5.classpath">
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/commons-el.jar"/>
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/jasper-compiler-jdt.jar"/>
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/jasper-compiler.jar"/>
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/jasper-runtime.jar"/>
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/jsp-api.jar"/>
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/naming-factory-dbcp.jar"/>
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/naming-factory.jar"/>
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/naming-resources.jar"/>
+    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/servlet-api.jar"/>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module Spring2.0 -->
+  
+  <dirname property="module.spring2.0.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.spring2.0" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.spring2.0" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.spring2.0" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.spring2.0" value="${compiler.args}"/>
+  
+  <property name="spring2.0.output.dir" value="${module.spring2.0.basedir}/out/production/Spring2.0"/>
+  <property name="spring2.0.testoutput.dir" value="${module.spring2.0.basedir}/out/test/Spring2.0"/>
+  
+  <path id="spring2.0.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="spring2.0.module.classpath">
+    <path refid="${module.jdk.classpath.spring2.0}"/>
+    <fileset dir="${basedir}/web/WEB-INF/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <path refid="library.tomcat_5.classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="spring2.0.runtime.module.classpath">
+    <pathelement location="${spring2.0.output.dir}"/>
+    <pathelement location="${spring2.0.testoutput.dir}"/>
+    <fileset dir="${basedir}/web/WEB-INF/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <path refid="library.tomcat_5.classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.spring2.0">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.spring2.0">
+    <patternset refid="excluded.from.module.spring2.0"/>
+  </patternset>
+  
+  <path id="spring2.0.module.sourcepath">
+    <dirset dir="${module.spring2.0.basedir}">
+      <include name="src/java"/>
+    </dirset>
+  </path>
+  
+  <path id="spring2.0.module.test.sourcepath">
+    <dirset dir="${module.spring2.0.basedir}">
+      <include name="src/test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.spring2.0" depends="compile.module.spring2.0.production,compile.module.spring2.0.tests" description="Compile module Spring2.0"/>
+  
+  <target name="compile.module.spring2.0.production" description="Compile module Spring2.0; production classes">
+    <mkdir dir="${spring2.0.output.dir}"/>
+    <javac destdir="${spring2.0.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.spring2.0}/javac">
+      <compilerarg line="${compiler.args.spring2.0}"/>
+      <bootclasspath refid="spring2.0.module.bootclasspath"/>
+      <classpath refid="spring2.0.module.classpath"/>
+      <src refid="spring2.0.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.spring2.0"/>
+    </javac>
+    
+    <copy todir="${spring2.0.output.dir}">
+      <fileset dir="${module.spring2.0.basedir}/src/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.spring2.0.tests" depends="compile.module.spring2.0.production" description="compile module Spring2.0; test classes" unless="skip.tests">
+    <mkdir dir="${spring2.0.testoutput.dir}"/>
+    <javac destdir="${spring2.0.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.spring2.0}/javac">
+      <compilerarg line="${compiler.args.spring2.0}"/>
+      <classpath refid="spring2.0.module.classpath"/>
+      <classpath>
+        <path refid="spring2.0.module.classpath"/>
+        <pathelement location="${spring2.0.output.dir}"/>
+      </classpath>
+      <src refid="spring2.0.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.spring2.0"/>
+    </javac>
+    
+    <copy todir="${spring2.0.testoutput.dir}">
+      <fileset dir="${module.spring2.0.basedir}/src/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.spring2.0" description="cleanup module">
+    <delete dir="${spring2.0.output.dir}"/>
+    <delete dir="${spring2.0.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.spring2.0, clean.artifact.spring2.0:war_exploded" description="cleanup all">
+      <delete dir="${module.spring2.0.basedir}/out/" />
+  </target>
+  
+  <target name="build.modules" depends="init, clean, compile.module.spring2.0" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.spring2.0:war" value="${basedir}/out/artifacts/Spring2_0_war"/>
+    <property name="artifact.output.spring2.0:war_exploded" value="${basedir}/out/artifacts/Spring2_0_war_exploded"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.Spring2_0_war.war" value="${artifacts.temp.dir}/Spring2_0_war.war"/>
+  </target>
+  
+  <target name="clean.artifact.spring2.0:war_exploded" description="clean Spring2.0:war exploded artifact output">
+    <delete dir="${artifact.output.spring2.0:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.spring2.0:war" depends="init.artifacts, artifact.spring2.0:war_exploded" description="Build &apos;Spring2.0:war&apos; artifact">
+    <property name="artifact.temp.output.spring2.0:war" value="${artifacts.temp.dir}/Spring2_0_war"/>
+    <mkdir dir="${artifact.temp.output.spring2.0:war}"/>
+    <jar destfile="${temp.jar.path.Spring2_0_war.war}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${artifact.output.spring2.0:war_exploded}"/>
+    </jar>
+    <copy file="${temp.jar.path.Spring2_0_war.war}" tofile="${artifact.temp.output.spring2.0:war}/Spring2_0_war.war"/>
+  </target>
+  
+  <target name="artifact.spring2.0:war_exploded" depends="init.artifacts, compile.module.spring2.0" description="Build &apos;Spring2.0:war exploded&apos; artifact">
+    <mkdir dir="${artifact.output.spring2.0:war_exploded}"/>
+    <copy todir="${artifact.output.spring2.0:war_exploded}">
+      <fileset dir="${basedir}/web"/>
+    </copy>
+    <mkdir dir="${artifact.output.spring2.0:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/web/WEB-INF/web.xml" tofile="${artifact.output.spring2.0:war_exploded}/WEB-INF/web.xml"/>
+    <mkdir dir="${artifact.output.spring2.0:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.spring2.0:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.spring2.0:war_exploded}/WEB-INF/classes">
+      <fileset dir="${spring2.0.output.dir}"/>
+    </copy>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.spring2.0:war, artifact.spring2.0:war_exploded" description="Build all artifacts">
+    <mkdir dir="${artifact.output.spring2.0:war}"/>
+    <copy todir="${artifact.output.spring2.0:war}">
+      <fileset dir="${artifact.temp.output.spring2.0:war}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
