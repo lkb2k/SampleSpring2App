@@ -86,15 +86,15 @@
   <!-- Application Server Libraries -->
   
   <path id="library.tomcat_5.classpath">
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/commons-el.jar"/>
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/jasper-compiler-jdt.jar"/>
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/jasper-compiler.jar"/>
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/jasper-runtime.jar"/>
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/jsp-api.jar"/>
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/naming-factory-dbcp.jar"/>
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/naming-factory.jar"/>
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/naming-resources.jar"/>
-    <pathelement location="/Users/lorinkobashigawa/Projects/Java/Spring2.0/support/apache-tomcat-5.5.29/common/lib/servlet-api.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/commons-el.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/jasper-compiler-jdt.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/jasper-compiler.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/jasper-runtime.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/jsp-api.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/naming-factory-dbcp.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/naming-factory.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/naming-resources.jar"/>
+    <pathelement location="${basedir}/support/apache-tomcat-5.5.29/common/lib/servlet-api.jar"/>
   </path>
   
   <!-- Modules -->
