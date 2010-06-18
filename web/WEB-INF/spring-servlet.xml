@@ -8,12 +8,17 @@
         <property name="mappings">
             <props>
                 <prop key="/hello.htm">helloController</prop>
+                <prop key="/info.htm">personalInfoController</prop>
             </props>
         </property>
     </bean>
 
     <bean id="helloController" class="com.kgawa.spring2.HelloController">
         <property name="viewName" value="hello"/>
+    </bean>
+
+    <bean id="personalInfoController" class="com.kgawa.spring2.PersonalInfoController">
+        <property name="view" value="personalInfo"/>
     </bean>
 
 </beans>

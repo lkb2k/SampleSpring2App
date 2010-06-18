@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<personalInfo>
+    <age>35</age>
+    <companyName>Mannar &amp; Mannar Company</companyName>
+    <employeeGrade>L08</employeeGrade>
+    <location>
+        <city>Chennai</city>
+        <state>TN</state>
+        <street1>100 Mount Road</street1>
+        <zip>600001</zip>
+    </location>
+    <name>Magesh Chandramouli</name>
+</personalInfo>

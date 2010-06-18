@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="spring2.0" default="all">
   
-  
+  <property environment="env"/>
+  <property name="jdk.home.1.6" value="${env.JAVA_HOME}" />
   <property file="build.properties"/>
+    
   <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
@@ -53,7 +55,7 @@
   </patternset>
   
   <!-- JDK definitions -->
-  
+
   <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
   <path id="jdk.classpath.1.6">
     <fileset dir="${jdk.home.1.6}">
@@ -216,8 +218,15 @@
   <target name="clean" depends="clean.module.spring2.0, clean.artifact.spring2.0:war_exploded" description="cleanup all">
       <delete dir="${module.spring2.0.basedir}/out/" />
   </target>
-  
-  <target name="build.modules" depends="init, clean, compile.module.spring2.0" description="build all modules"/>
+
+  <target name="generate.class.model">
+    <delete dir="${module.spring2.0.basedir}/src/java/com/kgawa/spring2/model" />
+    <exec executable="xjc">
+        <arg line="-d ${module.spring2.0.basedir}/src/java/ -p com.kgawa.spring2.model ${module.spring2.0.basedir}/src/java/personalInfo.xsd"/>
+    </exec>
+  </target>
+
+  <target name="build.modules" depends="init, clean, generate.class.model, compile.module.spring2.0" description="build all modules"/>
   
   <target name="init.artifacts">
     <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
