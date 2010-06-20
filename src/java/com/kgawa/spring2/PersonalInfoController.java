@@ -1,8 +1,10 @@
 package com.kgawa.spring2;
 
+import com.kgawa.jmx.PerformanceCounter;
 import com.kgawa.spring2.model.Address;
 import com.kgawa.spring2.model.ObjectFactory;
 import com.kgawa.spring2.model.PersonalInfo;
+import com.kgawa.util.Stopwatch;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
@@ -28,6 +30,9 @@ public class PersonalInfoController extends AbstractController {
 
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+        Stopwatch sw = new Stopwatch();
+        sw.start();
+
         ModelAndView mv = new ModelAndView(view);
         com.kgawa.spring2.model.PersonalInfo info;
         String file = httpServletRequest.getParameter("file");
@@ -72,6 +77,11 @@ public class PersonalInfoController extends AbstractController {
         mv.addObject("info", info);
         mv.addObject("viewCount", getViewCount());
 
+        //done .. get some time added to get some counter data
+        Thread.sleep(100);
+        sw.stop();
+        PerformanceCounter pCounter = PerformanceCounter.getInstance(this.getClass().getName());
+        pCounter.Add(sw.getElapsedTime());
         return mv;
     }
 

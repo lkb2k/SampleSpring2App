@@ -8,7 +8,8 @@
         <property name="mappings">
             <props>
                 <prop key="/hello.htm">helloController</prop>
-                <prop key="/info.htm">personalInfoController</prop>
+                <prop key="/jaxb.htm">personalInfoController</prop>
+                <prop key="/jmx.htm">performanceCounterController</prop>
             </props>
         </property>
     </bean>
@@ -19,6 +20,10 @@
 
     <bean id="personalInfoController" class="com.kgawa.spring2.PersonalInfoController">
         <property name="view" value="personalInfo"/>
+    </bean>
+
+    <bean id="performanceCounterController" class="com.kgawa.spring2.PerformanceCounterController">
+        <property name="view" value="performanceCounter" />
     </bean>
 
 </beans>

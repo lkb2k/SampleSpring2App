@@ -41,5 +41,10 @@
     <p>
         This page has been viewed ${viewCount} time(s).
     </p>
+
+    <p>
+        <strong>Note:</strong> The data above is marshalled and unmarshalled from a file named personalInfo.xml. If the file
+        does not exist under the 'WEB-INFO/data' it will be created. The model for this page is generated using xjc by an ant build target
+    </p>
 </body>
 </html>
